@@ -1,3 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Mooli&family=Poppins:ital,wght@0,400;1,100&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+body {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+h1,
+h2,
+h3,
+h4,
+h6,
+h5,
+a,
+.logo {
+  font-family: "Mooli", sans-serif;
+}
+button {
+  @apply p-3  border-black hover:border-orange-400 border-2 rounded-full hover:text-white hover:bg-orange-400 transition-all duration-200 hover:shadow backdrop-blur-lg shadow-inner shadow-black;
+}
+.btn {
+  @apply p-3  border-black hover:border-orange-400 border-2 rounded-full hover:text-white hover:bg-orange-400 transition-all duration-200 hover:shadow backdrop-blur-lg shadow-inner shadow-black;
+}
+button.active {
+  @apply p-3 border-orange-400 border-2 rounded-full text-white bg-orange-400 transition-all duration-200 shadow backdrop-blur-lg;
+}
+a:hover {
+  @apply text-orange-400;
+}
+
+.link {
+  @apply text-blue-400 underline;
+}
+a.active {
+  font-weight: bold;
+  @apply text-orange-500;
+}
+
+.container {
+  @apply w-11/12 mx-auto;
+}
+
+.gallery > * {
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+/* .row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+} */
+
+/* .col {
+  flex: 25%;
+  max-width: 33.3%;
+  padding: 0 4px;
+
+}
+
+.col img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+  filter: grayscale(1) brightness(0.5);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s linear;
+}
+
+.col img:hover {
+  filter: grayscale(0);
+}
+
+@media screen and (max-width: 700px) {
+  .col {
+    flex: 100%;
+    max-width: 100%;
+  }
+
+  .col img {
+    filter: grayscale(0) brightness(1);
+  }
+} */
