@@ -4,7 +4,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import useAxiosForCookies from "./useAxiosForCookies";
 
 const useUserComments = () => {
-  const { user } = useContext(AuthContext);
+  const { user, tokenStatus } = useContext(AuthContext);
   const axiosSecure = useAxiosForCookies();
 
   const {
@@ -17,7 +17,7 @@ const useUserComments = () => {
       const res = await axiosSecure.get(`/my-comments?email=${user?.email}`);
       return res.data;
     },
-    enabled: !!user,
+    enabled: !!user && tokenStatus,
   });
 
   return { comments, refetch, isLoading };

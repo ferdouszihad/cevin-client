@@ -22,6 +22,7 @@ const AuthProvider = (props = {}) => {
   const auth = getAuth(app);
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [tokenStatus, setTokenStatus] = useState(false);
 
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -59,19 +60,21 @@ const AuthProvider = (props = {}) => {
       // if user exists then issue a token
       if (currentUser) {
         axios
-          .post("http://localhost:5000/jwt", loggedUser, {
+          .post("https://cevin-ai.vercel.app/jwt", loggedUser, {
             withCredentials: true,
           })
           .then((res) => {
             console.log("token response", res.data);
+            setTokenStatus(true);
           });
       } else {
         axios
-          .post("http://localhost:5000/logout", loggedUser, {
+          .post("https://cevin-ai.vercel.app/logout", loggedUser, {
             withCredentials: true,
           })
           .then((res) => {
             console.log(res.data);
+            setTokenStatus(false);
           });
       }
     });
@@ -90,6 +93,7 @@ const AuthProvider = (props = {}) => {
     googleSignIn,
     updateUser,
     removeUser,
+    tokenStatus,
   };
 
   return (

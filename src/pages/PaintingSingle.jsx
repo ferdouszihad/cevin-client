@@ -11,11 +11,11 @@ import useImageComments from "../hooks/useImageComments";
 import useAxiosForCookies from "../hooks/useAxiosForCookies";
 
 const PaintingSingle = () => {
-  const { user } = useContext(AuthContext);
+  const { user, tokenStatus } = useContext(AuthContext);
   const { id } = useParams();
   const { refetch: refetchComment } = useImageComments();
   const axiosSecure = useAxiosForCookies();
-
+  console.log(tokenStatus);
   const {
     data = {},
     isLoading,
@@ -27,6 +27,7 @@ const PaintingSingle = () => {
       console.log(res);
       return res?.data;
     },
+    enabled: tokenStatus,
   });
 
   //console.log(data);

@@ -9,7 +9,7 @@ const usePaintings = () => {
   } = useQuery({
     queryKey: ["all-paintings"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5000/paintings");
+      const res = await axios.get("https://cevin-ai.vercel.app/paintings");
       return res.data;
     },
   });

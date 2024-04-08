@@ -5,7 +5,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import Swal from "sweetalert2";
 
 export const axiosSecure = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://cevin-ai.vercel.app",
   withCredentials: true,
 });
 
